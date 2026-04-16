@@ -73,8 +73,7 @@ ICAIL2026/
 ## Requirements
 
 ```bash
-conda create -n env_zjw python=3.10
-conda activate env_zjw
+python=3.10
 pip install faiss-cpu rank-bm25 jieba pyyaml tqdm transformers torch numpy
 ```
 
@@ -194,5 +193,4 @@ Article answer distribution: 68% single article, 20% two articles, 11% three art
 | Law-name direct lookup | Specialized tax laws (e.g., 烟叶税法) have poor BM25 recall due to rare terminology |
 | LLM-only conflict resolution | Rule-based specificity ranking caused wrong primary selections |
 | Citation completion (post-execution) | Definition/scope articles filtered by "calculable" criterion; added back via conservative LLM check |
-| Arabic→Chinese numeral normalization | LLM fallback generates `第4条`; normalized to `第四条` to match KB article IDs |
 | Emergency fallback chain | Guarantees ~100% success rate: regular loop → BM25-50 + relaxed judge → direct LLM |
