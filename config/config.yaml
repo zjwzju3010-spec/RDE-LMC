@@ -1,0 +1,35 @@
+model:
+  llm: "DeepSeek-V3.2"
+  embedding: "/home/u22502058/models/Qwen3-Embedding-0.6B"
+  embedding_dim: 1024
+
+paths:
+  raw_laws_dir: "data/raw_laws"
+  processed_kb_dir: "data/processed_kb"
+  dataset_path: "data/dataset/dataset.jsonl"
+  kb_json: "data/processed_kb/kb.json"
+  corpus_json: "data/processed_kb/corpus.json"
+  embeddings_npy: "data/processed_kb/embeddings.npy"
+  article_ids_json: "data/processed_kb/article_ids.json"
+  bm25_cache: "data/processed_kb/bm25_cache.pkl"
+  llm_cache_dir: "data/processed_kb/llm_cache"
+  results_path: "data/results.jsonl"
+
+retrieval:
+  bm25_top_k: 30
+  dense_top_k: 30
+  hybrid_top_k: 20
+  rrf_k: 60
+
+discriminator:
+  max_applicable: 5
+
+execution:
+  max_loop_iterations: 3
+
+evaluation:
+  numerical_tolerance: 0.01
+
+logging:
+  level: "INFO"
+  file: "data/pipeline.log"
